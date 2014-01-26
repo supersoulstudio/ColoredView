@@ -106,6 +106,9 @@ MonoBehaviour:
   IntroTime: 3
   ActiveTime: .5
   LerpTime: 5
+  IntroDelay: .100000001
+  AutoStart: 1
+  Running: 0
   ActiveSize: 5
 --- !u!124 &12400000
 Behaviour:

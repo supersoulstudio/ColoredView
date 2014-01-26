@@ -37,6 +37,7 @@ public class GlassesComponent : MonoBehaviour
 			Game.Manager.Begin();
 			Game.Camera.Begin();
 			TurnDone = false;
+			GameObject.Find("Title Camera").SetActive(false);
 			StartCoroutine(DoTurn());
 		}
 		else if (Started && !TurnDone)
