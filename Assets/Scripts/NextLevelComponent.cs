@@ -29,6 +29,14 @@ private IEnumerator DoTransition()
 		Game.Color.FinishLevel();
 		AudioSource.PlayClipAtPoint (TransitionSound, Camera.main.transform.position);
 	yield return new WaitForSeconds(Delay);
-	Application.LoadLevelAsync(Application.loadedLevel + 1);
+		if (Application.loadedLevel + 1 >= Application.levelCount)
+		{
+			GlassesComponent.IntroDone = false;
+			Application.LoadLevelAsync(0);
+		}
+		else
+		{
+			Application.LoadLevelAsync(Application.loadedLevel + 1);
+		}
 }
 }
