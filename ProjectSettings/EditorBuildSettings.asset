@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/Scenes/JumpingBlocked.unity
   - enabled: 1
     path: Assets/Scenes/Elevator.unity
+  - enabled: 1
+    path: Assets/Scenes/FanOfBoredom.unity
