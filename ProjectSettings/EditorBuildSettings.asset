@@ -20,6 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Spikes.unity
   - enabled: 1
+    path: Assets/Scenes/SpikesGreen.unity
+  - enabled: 1
     path: Assets/Scenes/SpikesMoving.unity
   - enabled: 1
     path: Assets/Scenes/JumpingBlocked.unity
