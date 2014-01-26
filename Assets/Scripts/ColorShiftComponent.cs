@@ -98,6 +98,11 @@ public class ColorShiftComponent : MonoBehaviour
 
 	private void UpdateColor(int Delta, bool Animate)
 	{
+		if (Animate)
+		{
+			Game.Manager.ChangeCount++;
+		}
+
 		if (CurrentColor + Delta > ColorType.Blue)
 		{
 			CurrentColor = ColorType.Red;

@@ -30,11 +30,16 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine(DoStart());
 	}
 
+	public float StartTime;
+	public int ChangeCount;
+
 	private IEnumerator DoStart()
 	{
 		yield return new WaitForSeconds(StartDelay);
 		Game.Player.InputEnabled = true;
 		Game.Color.Begin();
+		StartTime = Time.time;
+		ChangeCount = 0;
 	}
 
 	// Update is called once per frame
