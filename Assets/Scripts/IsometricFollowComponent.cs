@@ -18,11 +18,19 @@ public class IsometricFollowComponent : MonoBehaviour
 
 	public float ActiveSize = 5f;
 
+	public static int LastScene = -1;
+
 	private void Start()
 	{
 		LerpTime = IntroTime;
 		Intro = true;
 		Running = false;
+
+		if (LastScene == Application.loadedLevel)
+		{
+			this.gameObject.transform.position = TargetObj.transform.position + Offset;
+			Game.Manager.StartDelay /= 5;
+		}
 
 		if (AutoStart)
 		{
@@ -38,6 +46,7 @@ public class IsometricFollowComponent : MonoBehaviour
 	private IEnumerator DoStart()
 	{
 		yield return new WaitForSeconds(IntroDelay);
+		LastScene = Application.loadedLevel;
 		Running = true;
 	}
 
