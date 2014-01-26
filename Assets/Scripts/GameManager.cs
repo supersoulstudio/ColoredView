@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 		Game.Camera = Camera.main.GetComponent<IsometricFollowComponent>();
 		Game.HUD = GameObject.Find("HUD").GetComponent<Animator>();
 		Game.Player = GameObject.Find("Player").GetComponent<ThirdPersonUserControl>();
+		Game.HUDCamera = Game.HUD.transform.parent.GetComponent<Camera>();
 	}
 
 	private void Start()
@@ -34,7 +35,6 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(StartDelay);
 		Game.Player.InputEnabled = true;
 		Game.Color.Begin();
-		Game.HUD.transform.parent.GetComponent<Camera>().enabled = true;
 	}
 
 	// Update is called once per frame
@@ -51,4 +51,5 @@ public class Game
 	public static Animator HUD;
 	public static ThirdPersonUserControl Player;
 	public static IsometricFollowComponent Camera;
+	public static Camera HUDCamera;
 }

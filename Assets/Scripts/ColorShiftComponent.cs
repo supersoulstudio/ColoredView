@@ -47,7 +47,16 @@ public class ColorShiftComponent : MonoBehaviour
 		Camera.main.backgroundColor = Color.white;
 		TargetColor = Color.white;
 	}
-	
+
+	public void FinishLevel()
+	{
+		ColorChanging = false;
+		Camera.main.backgroundColor = Color.white;
+		Game.Overlay.enabled = false;
+		Game.HUDCamera.enabled = false;
+
+	}
+
 	private void FixedUpdate()
 	{
 		if (ColorChanging)
@@ -71,6 +80,7 @@ public class ColorShiftComponent : MonoBehaviour
 						break;				
 				}
 				Game.Overlay.enabled = true;
+				Game.HUDCamera.enabled = true;
 				//ColorChanging = false;
 			//}
 			//else

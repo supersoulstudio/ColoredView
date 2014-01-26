@@ -1,18 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NextLevelComponent : MonoBehaviour {
-	
+public class NextLevelComponent : MonoBehaviour
+{
+	public float Delay = 2f;
+
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if(other.tag == "Player")
-			Application.LoadLevel(Application.loadedLevel + 1);
+		{
+			StartCoroutine(DoTransition());
+		}
+
 	}
 	
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.tag == "Player")
-			Application.LoadLevel(Application.loadedLevel + 1);
+		{
+			StartCoroutine(DoTransition());
+		}
 	}
-	
+
+private IEnumerator DoTransition()
+{
+		Game.Player.InputEnabled = false;
+		Game.Color.FinishLevel();
+	yield return new WaitForSeconds(Delay);
+	Application.LoadLevelAsync(Application.loadedLevel + 1);
+}
 }
