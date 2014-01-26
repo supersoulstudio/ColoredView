@@ -36,6 +36,9 @@ private IEnumerator DoTransition()
 		if (Application.loadedLevel + 1 >= Application.levelCount)
 		{
 			GlassesComponent.IntroDone = false;
+			Game.Music.audio.Stop();
+			Destroy(Game.Music);
+			Game.Music = null;
 			Application.LoadLevelAsync(0);
 		}
 		else
@@ -53,7 +56,7 @@ private IEnumerator DoTransition()
 		if (ShowResults)
 		{
 			GUI.Label(new Rect(400,75,50,50), Results,style);
-			Debug.Log("test");
+			//Debug.Log("test");
 		}
 	}
 }
