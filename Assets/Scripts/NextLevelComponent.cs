@@ -55,7 +55,7 @@ private IEnumerator DoTransition()
 	{	
 		if (ShowResults)
 		{
-			GUI.Label(new Rect(400,75,50,50), Results,style);
+			GUI.Label(new Rect(700,175,50,50), Results,style);
 			//Debug.Log("test");
 		}
 	}
