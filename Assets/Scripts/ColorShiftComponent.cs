@@ -14,6 +14,8 @@ public class ColorShiftComponent : MonoBehaviour
 	private Color TargetColor;
 	private bool ColorChanging = false;
 
+	public AudioClip ColorChangeSound;
+
 	private void Update ()
 	{
 		if (Game.Player.InputEnabled)
@@ -145,6 +147,8 @@ public class ColorShiftComponent : MonoBehaviour
 		}
 
 		ColorChanging = true;
+
+		AudioSource.PlayClipAtPoint (ColorChangeSound, Camera.main.transform.position);
 	}
 
 	private ColorType CurrentColor;

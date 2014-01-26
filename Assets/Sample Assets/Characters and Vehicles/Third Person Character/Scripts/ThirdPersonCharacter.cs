@@ -10,7 +10,7 @@ public class ThirdPersonCharacter : MonoBehaviour {
 	[SerializeField][Range(0.1f,3f)] float moveSpeedMultiplier = 1;	    // how much the move speed of the character will be multiplied by
 	[SerializeField][Range(0.1f,3f)] float animSpeedMultiplier = 1;	    // how much the animation of the character will be multiplied by
 	[SerializeField] AdvancedSettings advancedSettings;                 // Container for the advanced settings class , thiss allows the advanced settings to be in a foldout in the inspector
-
+	[SerializeField] AudioClip JumpSound;
 
 	[System.Serializable]
 	public class AdvancedSettings
@@ -45,6 +45,7 @@ public class ThirdPersonCharacter : MonoBehaviour {
 	float forwardAmount;
 	Vector3 velocity;
 
+
 	// Use this for initialization
 	void Start () {
 		animator = GetComponentInChildren<Animator>();
@@ -70,7 +71,7 @@ public class ThirdPersonCharacter : MonoBehaviour {
 		this.crouchInput = crouch;
 		this.jumpInput = jump;
 		this.lookPos = lookPos;
- 
+
 		// grab current velocity, we will be changing it.
 		velocity = rigidbody.velocity;
 
@@ -229,6 +230,7 @@ public class ThirdPersonCharacter : MonoBehaviour {
         
 		if (jumpInput && !crouchInput && okToRepeatJump && animationGrounded) {
 			// jump!
+			AudioSource.PlayClipAtPoint (JumpSound, Camera.main.transform.position, 0.25f);
 			onGround = false;
 			velocity = moveInput * airSpeed;
 			velocity.y = jumpPower;

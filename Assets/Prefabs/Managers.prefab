@@ -39,6 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4f895dd791d49cd811c944455ef9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartDelay: 3
+  AutoStart: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +55,7 @@ MonoBehaviour:
   RedOverlay: {fileID: 2800000, guid: f3dcf38d3cbfa47c9be0d131fb8c0778, type: 3}
   GreenOverlay: {fileID: 2800000, guid: a23b4b3268da64dceb4fdebe8ff26586, type: 3}
   BlueOverlay: {fileID: 2800000, guid: 2766f5627a9ce42cfbce8c04a75bee44, type: 3}
+  ColorChangeSound: {fileID: 8300000, guid: b76e63a042982c84bb4d6a06c9026431, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
