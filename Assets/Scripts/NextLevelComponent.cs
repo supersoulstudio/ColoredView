@@ -30,9 +30,9 @@ private IEnumerator DoTransition()
 		Game.Player.InputEnabled = false;
 		Game.Color.FinishLevel();
 		AudioSource.PlayClipAtPoint (TransitionSound, Camera.main.transform.position);
-		Results = ((int)(Time.time - Game.Manager.StartTime)).ToString() + " seconds\n \n" + Game.Manager.ChangeCount.ToString() + " color changes";
+		Results = ((int)(Time.time - Game.Manager.StartTime)).ToString() + " seconds\n \n" + Game.Manager.ChangeCount.ToString() +  (Game.Manager.ChangeCount == 1 ? " color change" :  " color changes");
 		ShowResults = true;
-	yield return new WaitForSeconds(Delay);
+		yield return new WaitForSeconds(Delay);
 		if (Application.loadedLevel + 1 >= Application.levelCount)
 		{
 			GlassesComponent.IntroDone = false;

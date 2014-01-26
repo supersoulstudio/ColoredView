@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
   - enabled: 1
-    path: Assets/Scenes/Alternating.unity
-  - enabled: 1
     path: Assets/Scenes/MovingDay_Easy.unity
+  - enabled: 1
+    path: Assets/Scenes/Alternating.unity
   - enabled: 0
     path: Assets/Scenes/MovingDay.unity
-  - enabled: 1
-    path: Assets/Scenes/CheckerBoard.unity
   - enabled: 1
     path: Assets/Scenes/Spikes.unity
   - enabled: 1
     path: Assets/Scenes/SpikesMoving.unity
+  - enabled: 1
+    path: Assets/Scenes/CheckerBoard.unity
   - enabled: 1
     path: Assets/Scenes/Elevator.unity
