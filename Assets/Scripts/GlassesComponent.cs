@@ -10,34 +10,53 @@ public class GlassesComponent : MonoBehaviour
 	private bool Started = false;
 	private bool TurnDone = false;
 
+	public static bool IntroDone = false;
+
 	void Start()
 	{
 		LeftGlasses = GameObject.Find("LeftGlasses").light;
 		RightGlasses = GameObject.Find("RightGlasses").light;
 
-		StartCoroutine(DoChangeColor());
+		if (!IntroDone)
+		{
+			StartCoroutine(DoChangeColor());
+		}
+		else
+		{
+			Game.Camera.camera.orthographicSize = 7;
+			Game.Manager.StartDelay /= 2; 
+			Destroy(LeftGlasses);
+			Destroy(RightGlasses);
+			DoStart();
+			TurnDone = true;
+		}
 	}
 
 	private IEnumerator DoChangeColor()
 	{
 		TargetColor = Color.red;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		TargetColor = Color.green;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		TargetColor = Color.blue;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		StartCoroutine(DoChangeColor());
+	}
+
+	private void DoStart()
+	{
+		Started = true;
+		Game.Manager.Begin();
+		Game.Camera.Begin();
+		TurnDone = false;
+		GameObject.Find("Title Camera").SetActive(false);
 	}
 
 	void Update()
 	{
 		if (Input.anyKey && !Started)
 		{
-			Started = true;
-			Game.Manager.Begin();
-			Game.Camera.Begin();
-			TurnDone = false;
-			GameObject.Find("Title Camera").SetActive(false);
+			DoStart();
 			StartCoroutine(DoTurn());
 		}
 		else if (Started && !TurnDone)
@@ -59,6 +78,7 @@ public class GlassesComponent : MonoBehaviour
 		yield return new WaitForSeconds(3f);
 		Destroy(LeftGlasses);
 		Destroy(RightGlasses);
+		IntroDone = true;
 	}
 	
 
