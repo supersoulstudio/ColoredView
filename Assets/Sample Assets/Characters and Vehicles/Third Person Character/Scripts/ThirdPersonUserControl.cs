@@ -47,8 +47,9 @@ public class ThirdPersonUserControl : MonoBehaviour {
 		}
 
 		// calculate move direction to pass to character
-		Vector3 camForward = Vector3.Scale (cam.forward, new Vector3(1,0,1)).normalized;
-		Vector3 move = v * camForward + h * cam.right;	
+		// Vector3 camForward = Vector3.Scale (cam.forward, new Vector3(1,0,1)).normalized;
+		Vector3 camForward = new Vector3 (1,0,0);
+		Vector3 move = v * camForward + h * new Vector3(0,0,-1);	
 
 		#if !(UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8)
 		// On standalone builds, walk/run speed is modified by a key press.
