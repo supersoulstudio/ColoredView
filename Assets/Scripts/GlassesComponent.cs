@@ -10,6 +10,8 @@ public class GlassesComponent : MonoBehaviour
 	private bool Started = false;
 	private bool TurnDone = false;
 
+	public AudioClip MusicClip;
+
 	public static bool IntroDone = false;
 
 	void Start()
@@ -50,6 +52,17 @@ public class GlassesComponent : MonoBehaviour
 		Game.Camera.Begin();
 		TurnDone = false;
 		GameObject.Find("Title Camera").SetActive(false);
+
+		if (Game.Music == null)
+		{
+			Game.Music = new GameObject();
+			Game.Music.AddComponent("AudioSource");
+			Game.Music.audio.clip = MusicClip;
+			Game.Music.audio.volume = 0.1f;
+			Game.Music.audio.loop = true;
+			Game.Music.audio.Play();
+			GameObject.DontDestroyOnLoad(Game.Music);
+		}
 	}
 
 	void Update()

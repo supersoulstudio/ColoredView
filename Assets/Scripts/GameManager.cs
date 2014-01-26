@@ -57,4 +57,5 @@ public class Game
 	public static ThirdPersonUserControl Player;
 	public static IsometricFollowComponent Camera;
 	public static Camera HUDCamera;
+	public static GameObject Music;
 }
