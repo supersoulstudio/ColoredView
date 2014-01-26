@@ -1727,6 +1727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartDelay: 3
   AutoStart: 1
+  StartTime: 0
+  ChangeCount: 0
 --- !u!114 &637554368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1742,6 +1744,7 @@ MonoBehaviour:
   RedOverlay: {fileID: 2800000, guid: f3dcf38d3cbfa47c9be0d131fb8c0778, type: 3}
   GreenOverlay: {fileID: 2800000, guid: a23b4b3268da64dceb4fdebe8ff26586, type: 3}
   BlueOverlay: {fileID: 2800000, guid: 2766f5627a9ce42cfbce8c04a75bee44, type: 3}
+  ColorChangeSound: {fileID: 8300000, guid: b76e63a042982c84bb4d6a06c9026431, type: 3}
 --- !u!4 &637554369
 Transform:
   m_ObjectHideFlags: 0
@@ -2676,6 +2679,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090e42161c5524ffd95aeb75e58685ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Delay: 5
+  TransitionSound: {fileID: 8300000, guid: 5b25c67569e856440ab8e9dc5815bc6f, type: 3}
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!23 &1050281319
 Renderer:
   m_ObjectHideFlags: 0
@@ -4074,7 +4138,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400004, guid: bbf37ca0ff97b41e18ac53c1e964d0cf, type: 2}
   m_PrefabInternal: {fileID: 1034812371}
   m_GameObject: {fileID: 1155798552}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106709}
+  m_LocalRotation: {x: -.707106888, y: 0, z: 0, w: .707106769}
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4230,11 +4294,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 05c98027197f10d48b41ecd91f0e49f3, type: 2}
       propertyPath: jumpPower
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 05c98027197f10d48b41ecd91f0e49f3, type: 2}
       propertyPath: airSpeed
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 05c98027197f10d48b41ecd91f0e49f3, type: 2}
       propertyPath: lookInCameraDirection
@@ -4670,7 +4734,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -6596,8 +6660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 8
-  airSpeed: 4
+  jumpPower: 10
+  airSpeed: 6
   airControl: 2
   gravityMultiplier: 2
   moveSpeedMultiplier: .75
@@ -6617,6 +6681,7 @@ MonoBehaviour:
     jumpRepeatDelayTime: .25
     runCycleLegOffset: .200000003
     groundStickyEffect: 5
+  JumpSound: {fileID: 8300000, guid: 2d3444486e5b7e7448abef2c2bdc07e5, type: 3}
 --- !u!54 &1870744957
 Rigidbody:
   m_ObjectHideFlags: 0
